@@ -53,6 +53,7 @@ void stop_violation(void)
 {
     puts("\t--> SM VIOLATION DETECTED; exiting...\n");
     //while(1);
+    return 0;
 }
 
 __attribute__ ((naked))
