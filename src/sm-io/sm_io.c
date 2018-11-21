@@ -52,7 +52,7 @@ void __attribute__((noinline)) printf3(const char* fmt, int arg1, int arg2, int 
 void stop_violation(void)
 {
     puts("\t--> SM VIOLATION DETECTED; exiting...\n");
-    while(1);
+    //while(1);
 }
 
 __attribute__ ((naked))
