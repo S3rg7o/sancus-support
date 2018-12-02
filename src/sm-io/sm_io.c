@@ -53,7 +53,8 @@ void stop_violation(void)
 {
     puts("\t--> SM VIOLATION DETECTED; exiting...\n");
     //EXIT();
-    asm(    "reti" );
+    asm( "mov &__unprotected_sp, r1   \n\t"   \
+         "reti" );
     
     pr_info("should never reach here..");
     while(1);
@@ -66,7 +67,7 @@ __attribute__((optimize("-O3")))
  * a stack frame: https://sourceforge.net/p/mspgcc/support-requests/27/ */
 void violation_isr(void)
 {
-    asm(   /*"mov &__unprotected_sp, r1                  \n\t"   \*/
-            "call #stop_violation                       \n\t"   \
+    asm(   "mov &__unprotected_sp, r1                  \n\t"   \
+           "call #stop_violation                       \n\t"   \
        );
 }
