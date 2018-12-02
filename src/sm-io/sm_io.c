@@ -53,7 +53,7 @@ void stop_violation(void)
 {
     puts("\t--> SM VIOLATION DETECTED; exiting...\n");
     //EXIT();
-    asm(/* "mov &__unprotected_sp, r1   \n\t"   \*/
+    asm( "mov &__unprotected_sp, r1   \n\t"   \
          "reti" );
     
     pr_info("should never reach here..");
