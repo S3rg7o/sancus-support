@@ -54,7 +54,7 @@ void stop_violation(void)
     puts("\t--> SM VIOLATION DETECTED; exiting...\n");
     //EXIT();
     asm( "mov &__unprotected_sp, r1   \n\t"   
-         "mov #0x53550         , r15  \n\t"   
+         "mov #0x7777          , r15  \n\t"   
          "reti" );
     
     pr_info("should never reach here..");
