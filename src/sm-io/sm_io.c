@@ -52,10 +52,10 @@ void __attribute__((noinline)) printf3(const char* fmt, int arg1, int arg2, int 
 void stop_violation(void)
 {
     puts("\t--> SM VIOLATION DETECTED; exiting...\n");
-    //EXIT();
-    asm( "mov &__unprotected_sp, r1   \n\t"   
+    EXIT();
+    /*asm( "mov &__unprotected_sp, r1   \n\t"   
          "mov #0x7777          , r15  \n\t"   
-         "reti" );
+         "reti" );*/
     
     pr_info("should never reach here..");
     while(1);
@@ -67,11 +67,10 @@ __attribute__((optimize("-O3")))
 /* ^^ NOTE: Agressively enable optimizations to prevent GCC from allocating
  * a stack frame: https://sourceforge.net/p/mspgcc/support-requests/27/ */
 void violation_isr(void)
-{
-     puts("\t--> SM VIOLATION DETECTED; exiting...\n");
-    /*asm(  "mov &__unprotected_sp, r1                  \n\t"   
-            "call #stop_violation                       \n\t"       
-       );*/
+{   
+    asm(  "mov &__unprotected_sp, r1                  \n\t"   
+          "call #stop_violation                       \n\t"       
+       );
 }
 
 
