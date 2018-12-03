@@ -73,7 +73,7 @@ void violation_isr(void)
        );
 }
 
-
+/*
 __attribute__ ((naked))
 __attribute__((interrupt(24)))
 //ISR for irq[12] --> maskable interrupt nr. 13 
@@ -81,4 +81,4 @@ __attribute__((optimize("-O3")))
 void sergio_isr(void)
 {
      puts("\t--> Sergio; exiting...\n");
-}
+}*/
