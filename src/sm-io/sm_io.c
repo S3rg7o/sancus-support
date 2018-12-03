@@ -73,3 +73,14 @@ void violation_isr(void)
             "call #stop_violation                       \n\t"       
        );*/
 }
+
+
+__attribute__ ((naked))
+__attribute__((interrupt(24)))
+__attribute__((optimize("-O3")))
+/* ^^ NOTE: Agressively enable optimizations to prevent GCC from allocating
+ * a stack frame: https://sourceforge.net/p/mspgcc/support-requests/27/ */
+void sergio_isr(void)
+{
+     puts("\t--> Sergio; exiting...\n");
+}
