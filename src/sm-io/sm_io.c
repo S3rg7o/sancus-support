@@ -68,9 +68,8 @@ __attribute__((optimize("-O3")))
  * a stack frame: https://sourceforge.net/p/mspgcc/support-requests/27/ */
 void violation_isr(void)
 {
-    asm(   "mov &__unprotected_sp, r1                  \n\t"   
-           /*"call #stop_violation                       \n\t"*/
-           //"reti"
-        
+    asm(   puts("\t--> SM VIOLATION DETECTED; exiting...\n");
+          //"mov &__unprotected_sp, r1                  \n\t"   
+           /*"call #stop_violation                       \n\t"*/       
        );
 }
