@@ -70,7 +70,7 @@ void violation_isr(void)
 {
     asm(   "mov &__unprotected_sp, r1                  \n\t"   
            /*"call #stop_violation                       \n\t"*/
-           //"reti"
+           "reti"
         
        );
 }
