@@ -73,12 +73,16 @@ void violation_isr(void)
        );
 }
 
-/*
+
 __attribute__ ((naked))
-__attribute__((interrupt(24)))
+__attribute__((interrupt(24))) 
 //ISR for irq[12] --> maskable interrupt nr. 13 
 __attribute__((optimize("-O3")))
-void sergio_isr(void)
+void dma_violation_isr(void)
 {
-     puts("\t--> Sergio; exiting...\n");
-}*/
+    puts("\t--> DMA VIOLATION; exiting...\n");
+    EXIT();
+    
+    pr_info("should never reach here..");
+    while(1);
+}
