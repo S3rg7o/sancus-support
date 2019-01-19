@@ -80,9 +80,9 @@ __attribute__((interrupt(24)))
 __attribute__((optimize("-O3")))
 void dma_violation_isr(void)
 {
-    puts("\t--> DMA VIOLATION; exiting...\n");
-    //EXIT();
+    puts("\t--> DMA VIOLATION IRQ; exiting...\n");
+    EXIT();
     
-   // pr_info("should never reach here..");
-    //while(1);
+    pr_info("should never reach here..");
+    while(1);
 }
